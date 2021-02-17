@@ -7,10 +7,10 @@ import { Button, Icon } from 'semantic-ui-react';
 const App = () => {
   return (
     <div className="App">
-      <Header size="huge" >
+      <Header data-test="header" size="huge" >
         Images-app
       </Header>
-      <SearchBar />
+      <SearchBar data-test="search-bar-component" />
     <div>
       <Button circular color='facebook' icon='facebook' />
       <Button circular color='twitter' icon='twitter' />
