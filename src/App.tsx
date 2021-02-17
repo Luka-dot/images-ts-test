@@ -1,24 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import SearchBar from './components/SearchBar';
 import './App.css';
+import { Header } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header size="huge" >
+        Images-app
+      </Header>
+      <SearchBar />
+    <div>
+      <Button circular color='facebook' icon='facebook' />
+      <Button circular color='twitter' icon='twitter' />
+      <Button circular color='linkedin' icon='linkedin' />
+      <Button circular color='google plus' icon='google plus' />
+    </div>
     </div>
   );
 }
