@@ -7,10 +7,14 @@ interface singleImage {
     }
 }
 
-class ImageCard extends React.Component<singleImage> {
+type MyState = { spans: number };
+
+class ImageCard extends React.Component<singleImage, MyState> {
     imageRef: React.RefObject<HTMLImageElement>;
     constructor(props: singleImage) {
         super(props);
+
+        this.state = { spans: 0 };
 
         this.imageRef = React.createRef();
     }
@@ -20,14 +24,18 @@ class ImageCard extends React.Component<singleImage> {
     }
 
     setSpans = () => {
-        console.log(this.imageRef.current?.clientHeight)
+        const height: any = this.imageRef.current?.clientHeight;
+
+        const spans = Math.ceil(height / 10 );
+
+        this.setState({ spans: spans })
     }
 
     render() {
         const { description, urls } = this.props.image;
 
         return (
-            <div>
+            <div style={{ gridRowEnd: `span ${this.state.spans}` }} >
                 <img 
                     className="image-card"
                     ref={this.imageRef}
