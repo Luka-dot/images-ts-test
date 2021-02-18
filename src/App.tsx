@@ -4,6 +4,7 @@ import { Button, Icon } from 'semantic-ui-react';
 
 import unsplash from './api/unsplash';
 import SearchBar from './components/SearchBar';
+import ImageList from './components/imagesList/ImageList';
 import './App.css';
 
 
@@ -25,7 +26,7 @@ class App extends React.Component {
           Images-app
         </Header>
         <SearchBar onSubmit={this.onSearchSubmit} data-test="search-bar-component" />
-        Found: {this.state.images.length}
+        <ImageList images={this.state.images} />
       <div>
         <Button circular color='facebook' icon='facebook' />
         <Button circular color='twitter' icon='twitter' />
