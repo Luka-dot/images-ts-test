@@ -9,7 +9,7 @@ import SearchBar from './SearchBar';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const defaultProps = { searchText: '' };
+const defaultProps = { searchText: '', onSubmit: () => {} };
 
 const setUp = (props={}) => {
     const setupProps = { ...defaultProps, ...props }   // setting default with option to overide with props.

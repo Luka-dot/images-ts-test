@@ -4,21 +4,27 @@ import './App.css';
 import { Header } from 'semantic-ui-react';
 import { Button, Icon } from 'semantic-ui-react';
 
-const App = () => {
-  return (
-    <div className="App">
-      <Header data-test="header" size="huge" >
-        Images-app
-      </Header>
-      <SearchBar data-test="search-bar-component" />
-    <div>
-      <Button circular color='facebook' icon='facebook' />
-      <Button circular color='twitter' icon='twitter' />
-      <Button circular color='linkedin' icon='linkedin' />
-      <Button circular color='google plus' icon='google plus' />
-    </div>
-    </div>
-  );
+class App extends React.Component {
+  onSearchSubmit(term: string): void {
+    console.log(term)
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header data-test="header" size="huge" >
+          Images-app
+        </Header>
+        <SearchBar onSubmit={this.onSearchSubmit} data-test="search-bar-component" />
+      <div>
+        <Button circular color='facebook' icon='facebook' />
+        <Button circular color='twitter' icon='twitter' />
+        <Button circular color='linkedin' icon='linkedin' />
+        <Button circular color='google plus' icon='google plus' />
+      </div>
+      </div>
+    );
+  }
 }
 
 export default App;

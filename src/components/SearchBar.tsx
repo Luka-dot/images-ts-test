@@ -2,13 +2,18 @@ import React from 'react';
 import { Form, Container, Label } from 'semantic-ui-react'
 import './SearchBar-styles.css';
 
-class SearchBar extends React.Component {
-    state = { searchText: String };
+interface onSubmitProp {
+    onSubmit(term: string): void;
+  }
 
-    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => void (
-        console.log(e.target.value),
-        this.setState({ searchText: e.target.value})
-    );
+class SearchBar extends React.Component<onSubmitProp> {
+    state = { searchText: '' };
+
+    onFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        this.props.onSubmit(this.state.searchText)
+    }
 
     render() {
         return (
@@ -22,18 +27,20 @@ class SearchBar extends React.Component {
                 </Label>
                 <Form 
                     size="large"
-                    placeholder="enter your search"    
+                    placeholder="enter your search" 
+                    onSubmit={this.onFormSubmit}   
                 >
                     <input 
                         placeholder="enter your search" 
-                        onChange={this.handleChange} 
+                        onChange={e => this.setState({ searchText: e.target.value})} 
                         type="text"
+                        value={this.state.searchText}
                         data-test="input-area"
                     />
                 </Form>
             </div>
         )
     }
-}
+};
 
 export default SearchBar;
