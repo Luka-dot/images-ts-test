@@ -29,6 +29,7 @@ class SearchBar extends React.Component<onSubmitProp> {
                     size="large"
                     placeholder="enter your search" 
                     onSubmit={this.onFormSubmit}   
+                    data-test="form-component"
                 >
                     <input 
                         placeholder="enter your search" 
